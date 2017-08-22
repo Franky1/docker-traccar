@@ -4,31 +4,38 @@ Free and Open Source GPS Tracking Platform
 Current version: **3.13**  
 Official website: https://www.traccar.org  
 
+_____
+
 ## Docker Container  
 
 - Forked from GitHub https://github.com/magna-z/docker-traccar  
-- Based on ```openjdk:jre-8-alpine```
+- Based on `openjdk:jre-8-alpine`
 
 ## Disclaimer  
 
 - Dockerfile and Bash commands below are not tested yet (2017-08-22)
 - docker-compose.yml file is missing
 
+_____
+
 ## Create container example:  
 
 1. **Copy or git clone the Dockerfile to your Docker Host**
 
-2. **Create work directories in Docker Host:**  
+2. **Create work directories in Docker Host:**     
+
     ```bash
     mkdir -p /var/docker/traccar/logs
     ```
 
 3. **Build your docker image:**  
+
     ```bash
     docker build
     ```
 
 4. **Get default traccar.xml from default installation package:**  
+
     ```bash
     docker run \
     --rm \
@@ -36,9 +43,11 @@ Official website: https://www.traccar.org
     ```
 
 5. **Edit traccar.xml config file according to your needs:**  
-    ```<https://www.traccar.org/configuration-file/>```
 
-6. **Run container with Traccar server:**  
+    https://www.traccar.org/configuration-file/
+
+6. **Run container with Traccar server:**
+
     ```bash
     docker run \
     -d --restart always \
