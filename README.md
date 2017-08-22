@@ -31,7 +31,7 @@ _____
 3. **Build your docker image:**  
 
     ```bash
-    docker build
+    docker build -t traccar:1.13 .
     ```
 
 4. **Get default traccar.xml from default installation package:**  
