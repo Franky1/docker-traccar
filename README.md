@@ -15,12 +15,17 @@ _____
 
 - Dockerfile and Bash commands below are not tested yet (2017-08-22)
 - docker-compose.yml file is missing
+- bash scripts for quick installation not finished yet
 
 _____
 
 ## Create container example:  
 
 1. **Copy or git clone the Dockerfile to your Docker Host**
+
+    ```bash
+    git clone 
+    ```
 
 2. **Create work directories in Docker Host:**     
 
@@ -61,5 +66,6 @@ _____
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
     -v /var/docker/traccar/logs:/opt/traccar/logs:rw \
-    -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro
+    -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro \
+    traccar:3.13
     ```
