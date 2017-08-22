@@ -1,43 +1,54 @@
-Traccar server on Alpine Linux
-====
-Free and Open Source GPS Tracking Platform
+# Traccar server on Alpine Linux
 
-[![](https://images.microbadger.com/badges/image/magnaz/traccar.svg)](http://microbadger.com/images/magnaz/traccar "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/magnaz/traccar.svg)](http://microbadger.com/images/magnaz/traccar "Get your own version badge on microbadger.com")
+Free and Open Source GPS Tracking Platform  
+Current version: **3.13**  
+Official website: https://www.traccar.org  
 
-Current version: **3.12**
+## Docker Container  
 
-Official website: https://www.traccar.org
+- Forked from GitHub https://github.com/magna-z/docker-traccar  
+- Based on ```openjdk:jre-8-alpine```
 
-### Create container example:
+## Disclaimer  
 
-1. **Create work directories:**
+- Dockerfile and Bash commands below are not tested yet (2017-08-22)
+- docker-compose.yml file is missing
+
+## Create container example:  
+
+1. **Copy or git clone the Dockerfile to your Docker Host**
+
+2. **Create work directories in Docker Host:**  
     ```bash
     mkdir -p /var/docker/traccar/logs
     ```
 
-1. **Get default traccar.xml:**
+3. **Build your docker image:**  
+    ```bash
+    docker build
+    ```
+
+4. **Get default traccar.xml from default installation package:**  
     ```bash
     docker run \
     --rm \
-    --entrypoint cat \
-    magnaz/traccar:3.12 \
-    /opt/traccar/conf/traccar.xml > /var/docker/traccar/traccar.xml
+    --entrypoint cat /opt/traccar/conf/traccar.xml > /var/docker/traccar/traccar.xml
     ```
 
-1. **Edit traccar.xml: <https://www.traccar.org/configuration-file/>**
+5. **Edit traccar.xml config file according to your needs:**  
+    ```<https://www.traccar.org/configuration-file/>```
 
-1. **Create container:**
+6. **Run container with Traccar server:**  
     ```bash
     docker run \
     -d --restart always \
     --name traccar \
     --hostname traccar \
-    -p 80:8082 \
+    -p 8082:8082 \
     -p 5000-5150:5000-5150 \
     -p 5000-5150:5000-5150/udp \
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
     -v /var/docker/traccar/logs:/opt/traccar/logs:rw \
-    -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro \
-    image: magnaz/traccar:3.12
+    -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro
     ```
