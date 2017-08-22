@@ -31,7 +31,7 @@ _____
 3. **Build your docker image:**  
 
     ```bash
-    docker build -t traccar:1.13 .
+    docker build -t traccar:3.13 .
     ```
 
 4. **Get default traccar.xml from default installation package:**  
@@ -39,7 +39,9 @@ _____
     ```bash
     docker run \
     --rm \
-    --entrypoint cat /opt/traccar/conf/traccar.xml > /var/docker/traccar/traccar.xml
+    --entrypoint cat \
+    traccar:3.13 \
+    /opt/traccar/conf/traccar.xml > /var/docker/traccar/traccar.xml
     ```
 
 5. **Edit traccar.xml config file according to your needs:**  
