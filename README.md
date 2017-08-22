@@ -24,7 +24,7 @@ _____
 1. **Copy or git clone the Dockerfile to your Docker Host**
 
     ```bash
-    git clone 
+    git clone https://github.com/Franky1/docker-traccar.git
     ```
 
 2. **Create work directories in Docker Host:**     
@@ -57,7 +57,8 @@ _____
 
     ```bash
     docker run \
-    -d --restart always \
+    --detach \
+    --restart always \
     --name traccar \
     --hostname traccar \
     -p 8082:8082 \
