@@ -11,11 +11,13 @@ _____
 - Forked from GitHub https://github.com/magna-z/docker-traccar  
 - Based on `openjdk:jre-8-alpine`
 
-## Disclaimer  
+## Disclaimer (2017-08-24)  
 
-- Dockerfile and Bash commands below are not tested yet (2017-08-22)
-- docker-compose.yml file is missing
-- bash scripts for quick installation not finished yet
+- This repo is under development, do not use it in this stage...
+- Traccar Dockerfile and Bash scripts are not fully tested yet
+- Maven Dockerfile and Bash scripts are not fully tested yet
+- docker-compose.yml file is not yet done
+- Bash scripts for quick installation not finished yet
 
 _____
 
