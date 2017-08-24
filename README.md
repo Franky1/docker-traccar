@@ -1,23 +1,33 @@
 # Traccar server on Alpine Linux
 
 Free and Open Source GPS Tracking Platform  
-Current version: **3.13**  
+Current Traccar version: **3.13**  
 Official website: https://www.traccar.org  
+
+_____
+
+## Disclaimer (2017-08-24)  
+
+- This repo is under development, do not use it in this stage...
+- Maven Dockerfile and Bash scripts are completely untested
+- Traccar Dockerfile and Bash scripts are not fully tested yet
+- docker-compose.yml and bash file is not done at all
+- Bash scripts for quick installation not finished yet
+- be patient...
 
 _____
 
 ## Docker Container  
 
+### Docker Container for building latest Traccar Server from source with Maven
+
+- Maven Container documentation: https://hub.docker.com/_/maven/
+- Image is based on `maven:3-jdk-8-alpine` which is based on `openjdk:8-jdk-alpine`
+
+### Docker Container for running Traccar Server
+
 - Forked from GitHub https://github.com/magna-z/docker-traccar  
-- Based on `openjdk:jre-8-alpine`
-
-## Disclaimer (2017-08-24)  
-
-- This repo is under development, do not use it in this stage...
-- Traccar Dockerfile and Bash scripts are not fully tested yet
-- Maven Dockerfile and Bash scripts are not fully tested yet
-- docker-compose.yml file is not yet done
-- Bash scripts for quick installation not finished yet
+- Image is based on `openjdk:jre-8-alpine`
 
 _____
 
@@ -38,7 +48,7 @@ _____
 3. **Build your docker image:**  
 
     ```bash
-    docker build -t traccar:3.13 .
+    docker build -t traccar .
     ```
 
 4. **Get default traccar.xml from default installation package:**  
@@ -47,13 +57,13 @@ _____
     docker run \
     --rm \
     --entrypoint cat \
-    traccar:3.13 \
+    traccar \
     /opt/traccar/conf/traccar.xml > /var/docker/traccar/traccar.xml
     ```
 
 5. **Edit traccar.xml config file according to your needs:**  
 
-    https://www.traccar.org/configuration-file/
+    Documentation for the config file: https://www.traccar.org/configuration-file/
 
 6. **Run container with Traccar server:**
 
@@ -70,5 +80,5 @@ _____
     -v /etc/localtime:/etc/localtime:ro \
     -v /var/docker/traccar/logs:/opt/traccar/logs:rw \
     -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro \
-    traccar:3.13
+    traccar
     ```
