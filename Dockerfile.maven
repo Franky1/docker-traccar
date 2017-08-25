@@ -10,4 +10,4 @@ RUN git clone --depth=1 --recursive https://github.com/tananaev/traccar.git
 
 WORKDIR $USER_SRC_DIR/traccar
 
-CMD ["mvn", "package"]
+RUN mvn package
