@@ -6,13 +6,13 @@ Official website: https://www.traccar.org
 
 _____
 
-## Disclaimer (2017-08-24)  
+## Disclaimer (2017-08-25)  
 
 - This repo is under development, do not use it in this stage...
-- Maven Dockerfile and Bash scripts are completely untested
-- Traccar Dockerfile and Bash scripts are not fully tested yet
-- docker-compose.yml and bash file is not done at all
-- Bash scripts for quick installation not finished yet
+- Maven Dockerfile and Bash scripts are _completely untested_
+- Traccar Dockerfile and Bash scripts are _not fully tested_
+- docker-compose.yml and bash file is _not done at all_
+- Bash scripts for quick installation _not finished_
 - be patient...
 
 _____
