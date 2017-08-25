@@ -1,6 +1,4 @@
-docker run \
---rm \
---interactive \
---tty \
---name maven-build-traccar \
-maven:traccar
+docker run --tty --name builder maven:traccar &&
+docker cp builder:/usr/src/traccar/ &&
+docker stop builder &&
+docker rm builder
