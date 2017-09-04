@@ -1,12 +1,12 @@
 # Traccar server on Alpine Linux
 
 Free and Open Source GPS Tracking Platform  
-Current Traccar version: **3.13**  
+Current Traccar version: **3.14**  
 Official website: https://www.traccar.org  
 
 _____
 
-## Disclaimer (2017-08-25)  
+## Disclaimer (2017-09-05)  
 
 - This repo is under development, do not use it in this stage...
 - Maven Dockerfile and Bash scripts are _completely untested_
