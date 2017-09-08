@@ -1,13 +1,15 @@
-FROM maven:3-jdk-8-alpine
-
+# Multi Stage build
+FROM maven:3-jdk-8-alpine AS builder
 RUN apk add --no-cache git
-
 ARG USER_SRC_DIR="/usr/src"
-
 WORKDIR $USER_SRC_DIR
-
 RUN git clone --depth=1 --recursive https://github.com/tananaev/traccar.git
-
 WORKDIR $USER_SRC_DIR/traccar
-
 RUN mvn package
+
+FROM openjdk:8-jre-alpine
+WORKDIR /opt/traccar
+COPY --from=builder $USER_SRC_DIR/traccar .
+EXPOSE 8082
+ENTRYPOINT ["java"]
+CMD ["-Djava.net.preferIPv4Stack=true", "-Xms512m", "-jar", "tracker-server.jar", "conf/traccar.xml"]
