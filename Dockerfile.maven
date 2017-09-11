@@ -1,15 +1,23 @@
 # Multi Stage build
-FROM maven:3-jdk-8-alpine AS builder
+FROM maven:3-jdk-8-alpine AS BUILDER
 RUN apk add --no-cache git
-ARG USER_SRC_DIR="/usr/src"
-WORKDIR $USER_SRC_DIR
+WORKDIR /usr/src
 RUN git clone --depth=1 --recursive https://github.com/tananaev/traccar.git
-WORKDIR $USER_SRC_DIR/traccar
+WORKDIR /usr/src/traccar
 RUN mvn package
+WORKDIR /usr/src/traccar/setup
+RUN cat traccar.xml | awk '/config.default/ && !modif { print;printf("    <entry key=\"web.debug\">true</entry>\n");next; modif=1 } {print}' > traccar.xml
+WORKDIR /usr/src/traccar
 
 FROM openjdk:8-jre-alpine
 WORKDIR /opt/traccar
-COPY --from=builder $USER_SRC_DIR/traccar .
+COPY --from=BUILDER /usr/src/traccar/setup/traccar.xml conf/traccar.xml
+COPY --from=BUILDER /usr/src/traccar/setup/default.xml conf/default.xml
+COPY --from=BUILDER /usr/src/traccar/schema schema
+COPY --from=BUILDER /usr/src/traccar/templates templates
+COPY --from=BUILDER /usr/src/traccar/traccar-web/web web
+COPY --from=BUILDER /usr/src/traccar/target/lib lib
+COPY --from=BUILDER /usr/src/traccar/target/tracker-server.jar tracker-server.jar
 EXPOSE 8082
 ENTRYPOINT ["java"]
 CMD ["-Djava.net.preferIPv4Stack=true", "-Xms512m", "-jar", "tracker-server.jar", "conf/traccar.xml"]

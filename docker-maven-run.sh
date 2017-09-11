@@ -1,6 +1,13 @@
-docker run --name builder maven:traccar /bin/echo Temporary Traccar container runs and exits immediately... &&
-docker cp builder:/usr/src/traccar/ . &&
-docker stop builder &&
-echo Temporary Traccar container stopped... &&
-docker rm builder &&
-echo Temporary Traccar container removed...
+docker run \
+--tty \
+--detach \
+--restart always \
+--name traccar \
+--hostname traccar \
+-p 8082:8082 \
+-p 5055:5055 \
+-p 5055:5055/udp \
+-v /etc/timezone:/etc/timezone:ro \
+-v /etc/localtime:/etc/localtime:ro \
+-v /var/docker/traccar/logs:/opt/traccar/logs:rw \
+maven:traccar

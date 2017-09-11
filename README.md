@@ -8,19 +8,19 @@ Official Traccar GitHub Repository: **[Traccar GitHub Repository](https://github
 _____
 ## Status of this Repository
 Latest changes in this repository were made on **2017-09-08**
-#### Versions (2017-09-08)
+#### Versions (2017-09-12)
 - Current Traccar version: `3.14`
 - Current Alpine Linux version: `3.6`
 - Current OpenJDK/Java version: `8.131.11-r2`
 - Current Maven version: `3.5.0`
 
-#### ToDo (2017-09-08)  
+#### ToDo (2017-09-12)  
 - Test all bash scripts and Dockerfiles
-- Rewrite bash scripts for the multi stage Dockerfiles
 - Test Multistage Dockerfiles
+- Make all Dockerfiles and Scripts working
 
-#### Disclaimer (2017-09-08)  
-- This repo is under development. ___Do not use it in this stage!___
+#### Disclaimer (2017-09-12)
+- This repo is under development. ___Dockerfiles and Scripts do not work properly yet! Do not use it in this stage!___
 - Dockerfiles and Bash scripts are _only drafts and are not tested yet_  
 - I'm neither a Docker nor a Linux expert, so be patient...  
 

@@ -10,4 +10,4 @@ docker run \
 -v /etc/localtime:/etc/localtime:ro \
 -v /var/docker/traccar/logs:/opt/traccar/logs:rw \
 -v /var/docker/traccar/traccar.xml:/opt/traccar/conf/traccar.xml:ro \
-traccar
+traccar:3.14
