@@ -7,7 +7,7 @@ Official Traccar GitHub Repository: **[Traccar GitHub Repository](https://github
 
 _____
 ## Status of this Repository
-Latest changes in this repository were made on **2017-09-08**
+Latest changes in this repository were made on **2017-09-12**
 #### Versions (2017-09-12)
 - Current Traccar version: `3.14`
 - Current Alpine Linux version: `3.6`
@@ -15,12 +15,14 @@ Latest changes in this repository were made on **2017-09-08**
 - Current Maven version: `3.5.0`
 
 #### ToDo (2017-09-12)  
-- Test all bash scripts and Dockerfiles
+- Fix bugs in Scripts and Dockerfiles
+- Test all Scripts and Dockerfiles
 - Test Multistage Dockerfiles
 - Make all Dockerfiles and Scripts working
 
 #### Disclaimer (2017-09-12)
-- This repo is under development. ___Dockerfiles and Scripts do not work properly yet! Do not use it in this stage!___
+- This repo is under development. ___Dockerfiles and Scripts do not work properly yet!!! Do not use it in this stage!!!___
+- ___The Maven based Dockerfile/Scripts do not work yet!!!___
 - Dockerfiles and Bash scripts are _only drafts and are not tested yet_  
 - I'm neither a Docker nor a Linux expert, so be patient...  
 
@@ -37,8 +39,9 @@ _____
 - Image is based on `openjdk:jre-8-alpine` based on `alpine:3.6`
 
 _____
-## Create container example:  
-
+## Create Container example:  
+### Example for Maven Build
+### Example for Traccar Server
 1. **Copy or git clone the Dockerfile to your Docker Host**
 
     ```bash
